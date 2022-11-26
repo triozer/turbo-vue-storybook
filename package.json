@@ -1,9 +1,8 @@
 {
   "private": true,
   "scripts": {
-    "build:packages": "turbo run build --filter=./packages/*",
-    "build:apps": "turbo run build --filter=./apps/*",
-    "build": "pnpm build:packages && pnpm build:apps",
+    "build:packages:ci": "pnpm --filter=./packages/* -r build",
+    "build": "turbo run build",
     "dev": "turbo run dev --no-cache --parallel --continue",
     "lint": "turbo run lint",
     "lint:fix": "turbo run lint:fix",

@@ -3,18 +3,7 @@
   "pipeline": {
     "build": {
       "outputs": ["dist/**", "storybook-static/**"],
-      "dependsOn": []
-    },
-    "build:apps": {
-      "outputs": ["storybook-static/**"],
-      "dependsOn": ["^build"],
-      "inputs": ["./apps"]
-    },
-    "build:packages": {
-      "outputs": ["dist/**"],
-      "dependsOn": ["^build"],
-      "inputs": ["./packages"],
-      "cache": false
+      "dependsOn": ["^build"]
     },
     "test": {
       "outputs": [],
