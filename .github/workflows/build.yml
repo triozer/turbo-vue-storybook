@@ -51,7 +51,7 @@ jobs:
         with:
           node-version: 16
 
-      - name: Install pNPM
+      - name: Install pnpm
         run: npm install -g pnpm
 
       - name: Get pnpm store directory
@@ -88,7 +88,7 @@ jobs:
         with:
           node-version: 16
 
-      - name: Install pNPM
+      - name: Install pnpm
         run: npm install -g pnpm
 
       - name: Get pnpm store directory
@@ -119,3 +119,4 @@ jobs:
         with:
           files: ./packages/acme-ui/coverage/clover.xml,./packages/acme-utils/coverage/clover.xml
           fail_ci_if_error: true
+          verbose: true
