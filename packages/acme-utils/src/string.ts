@@ -5,10 +5,10 @@
  * @return {string} The slugified string.
  */
 export function toSlug(str: string | null): string {
-  let s = str
-
-  if (!s)
+  if (str === null || str === "")
     return ""
+
+  let s = str
 
   s = s.toLowerCase().trim()
   s = s.replace(/ & /g, " and ")
