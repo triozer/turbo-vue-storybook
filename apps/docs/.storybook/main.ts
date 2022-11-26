@@ -21,10 +21,6 @@ module.exports = {
     // customize the Vite config here
     return {
       ...config,
-      define: {
-        ...config.define,
-        global: "window",
-      },
       resolve: {
         alias: {
           ...config.resolve.alias,
