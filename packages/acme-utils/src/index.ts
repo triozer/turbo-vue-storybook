@@ -1,1 +1,1 @@
-export { toSlug } from "./toSlug"
+export * from "./string"

@@ -1,17 +1,19 @@
 {
   "private": true,
   "scripts": {
+    "build:packages:ci": "pnpm --filter=./packages/* -r build",
     "build": "turbo run build",
     "dev": "turbo run dev --no-cache --parallel --continue",
     "lint": "turbo run lint",
     "lint:fix": "turbo run lint:fix",
     "test": "turbo run test",
+    "test:coverage": "turbo run test:coverage",
     "clean": "turbo run clean && rm -rf node_modules"
   },
   "devDependencies": {
-    "eslint": "^8.15.0",
-    "@acme/eslint-config": "workspace:*",
+    "@acme/eslint-config": "workspace:0.0.0",
+    "eslint": "^8.28.0",
     "turbo": "latest"
   },
-  "packageManager": "pnpm@7.15.0"
+  "packageManager": "pnpm@7.17.0"
 }
