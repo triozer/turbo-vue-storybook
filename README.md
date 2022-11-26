@@ -1,5 +1,7 @@
 # turbo-vue-storybook
 
+[![codecov](https://codecov.io/github/triozer/turbo-vue-storybook/branch/main/graph/badge.svg?token=6AP4X0UNRZ)](https://codecov.io/github/triozer/turbo-vue-storybook)
+
 A simple yet complete TypeScript + Vue 3 library starter powered by:
 
 - 🏎 [Turborepo](https://turbo.build/repo) — High-performance build system for Monorepos
@@ -12,6 +14,8 @@ As well as a few others tools preconfigured:
 - [TypeScript](https://www.typescriptlang.org/) for static type checking
 - [ESLint](https://eslint.org/) for code linting
 - [pnpm](https://pnpm.io/) for package management
+- [Vitest](https://vitest.dev) for Vue components unit testing
+- [Jest](https://jestjs.io/) for TypeScript scripts unit testing
 
 
 ## Using this example
