@@ -9,7 +9,7 @@ const count = ref(0)
 
 <template>
   <div>
-    <h1>Hello!: {{ name }}</h1>
+    <h1>Hello: {{ name }}</h1>
     <h3>Sluggified: {{ toSlug(name) }}</h3>
   </div>
 </template>
