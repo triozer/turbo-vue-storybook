@@ -1,14 +1,14 @@
 /**
  * Return a slugified copy of a string.
  *
- * @param {string} str The string to be slugified
+ * @param {string | null} str The string to be slugified
  * @return {string} The slugified string.
  */
 export function toSlug(str: string | null): string {
-  let s = str
-
-  if (!s)
+  if (str == null)
     return ""
+
+  let s = str
 
   s = s.toLowerCase().trim()
   s = s.replace(/ & /g, " and ")
