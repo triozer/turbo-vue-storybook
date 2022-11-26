@@ -7,11 +7,11 @@
     },
     "test": {
       "outputs": [],
-      "dependsOn": []
+      "dependsOn": ["^build"]
     },
     "test:coverage": {
       "outputs": ["coverage/**"],
-      "dependsOn": []
+      "dependsOn": ["^build"]
     },
     "lint": {
       "outputs": []
