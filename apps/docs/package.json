@@ -1,0 +1,32 @@
+{
+  "name": "@acme/docs",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "start-storybook -p 6006",
+    "build": "build-storybook --docs",
+    "preview-storybook": "serve storybook-static",
+    "lint": "eslint . --ext .ts",
+    "lint:fix": "eslint . --ext .ts --fix",
+    "clean": "rm -rf .turbo && rm -rf node_modules"
+  },
+  "dependencies": {
+    "@acme/ui": "workspace:*",
+    "vue": "^3.2.41"
+  },
+  "devDependencies": {
+    "@acme/tsconfig": "workspace:*",
+    "@acme/eslint-config": "workspace:*",
+    "@storybook/addon-actions": "^6.5.13",
+    "@storybook/addon-essentials": "^6.5.13",
+    "@storybook/addon-interactions": "^6.5.13",
+    "@storybook/addon-links": "^6.5.13",
+    "@storybook/builder-vite": "^0.2.5",
+    "@storybook/testing-library": "0.0.13",
+    "@storybook/vue3": "^6.5.13",
+    "@vitejs/plugin-vue": "^3.2.0",
+    "serve": "14.1.2",
+    "typescript": "^4.6.4",
+    "vite": "^3.2.3"
+  }
+}
