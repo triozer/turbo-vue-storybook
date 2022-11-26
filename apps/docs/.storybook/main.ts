@@ -1,4 +1,4 @@
-import { resolve } from "path";
+import { resolve } from "path"
 
 module.exports = {
   stories: [
@@ -17,8 +17,7 @@ module.exports = {
   features: {
     storyStoreV7: true,
   },
-  async viteFinal(config, { configType }) {
-    // customize the Vite config here
+  async viteFinal(config) {
     return {
       ...config,
       resolve: {
@@ -27,6 +26,6 @@ module.exports = {
           "@acme/ui": resolve(__dirname, "../../../packages/acme-ui/"),
         },
       },
-    };
+    }
   },
-};
+}
