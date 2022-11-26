@@ -18,11 +18,11 @@
     },
     "test": {
       "outputs": [],
-      "dependsOn": ["build:packages", "lint"]
+      "dependsOn": []
     },
     "test:coverage": {
       "outputs": ["coverage/**"],
-      "dependsOn": ["build:packages", "lint"]
+      "dependsOn": []
     },
     "lint": {
       "outputs": []
