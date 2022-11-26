@@ -1,5 +1,6 @@
 {
   "extends": "@acme/tsconfig/ui.json",
   "include": ["."],
-  "exclude": ["dist", "build", "node_modules"]
+  "exclude": ["dist", "build", "node_modules"],
+  "types": ["vitest/globals"]
 }

@@ -11,8 +11,8 @@ export function toSlug(str: string): string {
 
   s = s.toLowerCase().trim()
   s = s.replace(/ & /g, " and ")
-  s = s.replace(/[ ]+/g, "-")
-  s = s.replace(/[-]+/g, "-")
+  s = s.replaceAll(" ", "-")
+  s = s.replaceAll("-", "-")
   s = s.replace(/[^a-z0-9-]+/g, "")
   return s
 }
