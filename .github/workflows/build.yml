@@ -15,16 +15,22 @@ jobs:
         with:
           node-version: 16
 
-      - name: Install pNPM
+      - name: Install pnpm
         run: npm install -g pnpm
 
-      - name: Fetch pNPM Cache
-        uses: actions/cache@v3
+      - name: Get pnpm store directory
+        id: pnpm-cache
+        shell: bash
+        run: |
+        echo "STORE_PATH=$(pnpm store path)" >> $GITHUB_OUTPUT
+
+      - uses: actions/cache@v3
+        name: Setup pnpm cache
         with:
-          path: ~/.pnpm-store
-          key: pnpm-${{ hashFiles('**/pnpm-lock.yaml') }}
+          path: ${{ steps.pnpm-cache.outputs.STORE_PATH }}
+          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
           restore-keys: |
-            pnpm-
+          ${{ runner.os }}-pnpm-store-
 
       - name: Install Dependencies
         run: pnpm install
@@ -34,6 +40,43 @@ jobs:
 
   build:
     name: Build
+    runs-on: ubuntu-latest
+    needs: [test]
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16
+
+      - name: Install pNPM
+        run: npm install -g pnpm
+
+      - name: Get pnpm store directory
+        id: pnpm-cache
+        shell: bash
+        run: |
+        echo "STORE_PATH=$(pnpm store path)" >> $GITHUB_OUTPUT
+
+      - uses: actions/cache@v3
+        name: Setup pnpm cache
+        with:
+          path: ${{ steps.pnpm-cache.outputs.STORE_PATH }}
+          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
+          restore-keys: |
+          ${{ runner.os }}-pnpm-store-
+
+      - name: Install Dependencies
+        run: pnpm install
+
+      - name: Build
+        run: pnpm build
+
+
+  test:
+    name: Test
     runs-on: ubuntu-latest
     needs: [lint]
     steps:
@@ -48,43 +91,19 @@ jobs:
       - name: Install pNPM
         run: npm install -g pnpm
 
-      - name: Fetch pNPM Cache
-        uses: actions/cache@v3
+      - name: Get pnpm store directory
+        id: pnpm-cache
+        shell: bash
+        run: |
+        echo "STORE_PATH=$(pnpm store path)" >> $GITHUB_OUTPUT
+
+      - uses: actions/cache@v3
+        name: Setup pnpm cache
         with:
-          path: ~/.pnpm-store
-          key: pnpm-${{ hashFiles('**/pnpm-lock.yaml') }}
+          path: ${{ steps.pnpm-cache.outputs.STORE_PATH }}
+          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
           restore-keys: |
-            pnpm-
-
-      - name: Install Dependencies
-        run: pnpm install
-
-      - name: Build
-        run: pnpm build
-
-  test:
-    name: Test
-    runs-on: ubuntu-latest
-    needs: [build]
-    steps:
-      - name: Checkout Code
-        uses: actions/checkout@v3
-
-      - name: Setup Node
-        uses: actions/setup-node@v3
-        with:
-          node-version: 16
-
-      - name: Install pNPM
-        run: npm install -g pnpm
-
-      - name: Fetch pNPM Cache
-        uses: actions/cache@v3
-        with:
-          path: ~/.pnpm-store
-          key: pnpm-${{ hashFiles('**/pnpm-lock.yaml') }}
-          restore-keys: |
-            pnpm-
+          ${{ runner.os }}-pnpm-store-
 
       - name: Install Dependencies
         run: pnpm install

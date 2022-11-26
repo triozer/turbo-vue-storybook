@@ -8,8 +8,8 @@
     "build": "vue-tsc && vite build",
     "lint": "eslint . --ext .ts,.tsx,.vue",
     "lint:fix": "eslint . --ext .ts,.tsx,.vue --fix",
-    "clean": "rm -rf .turbo && rm -rf node_modules && rm -rf dist",
-    "test": "vitest",
+    "clean": "rm -rf .turbo && rm -rf node_modules && rm -rf dist && rm -rf coverage",
+    "test": "vitest run",
     "test:coverage": "vitest run --coverage"
   },
   "files": [

@@ -3,15 +3,26 @@
   "pipeline": {
     "build": {
       "outputs": ["dist/**", "storybook-static/**"],
-      "dependsOn": ["^build"]
+      "dependsOn": []
+    },
+    "build:apps": {
+      "outputs": ["storybook-static/**"],
+      "dependsOn": ["^build"],
+      "inputs": ["./apps"]
+    },
+    "build:packages": {
+      "outputs": ["dist/**"],
+      "dependsOn": ["^build"],
+      "inputs": ["./packages"],
+      "cache": false
     },
     "test": {
       "outputs": [],
-      "dependsOn": []
+      "dependsOn": ["build:packages", "lint"]
     },
     "test:coverage": {
       "outputs": ["coverage/**"],
-      "dependsOn": []
+      "dependsOn": ["build:packages", "lint"]
     },
     "lint": {
       "outputs": []
